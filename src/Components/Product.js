@@ -1,17 +1,21 @@
 import styled from 'styled-components'
-const Product = () => {
+const Product = (props) => {
+    console.log(props.title)
     return ( 
         <Container>
            <Title>
-                IPad Pro
+                {props.title}
            </Title>
            <Price>
-                $1499
+                Rs.{props.price}.00
            </Price>
            <Rating>
-               ⭐⭐⭐⭐⭐
+                {
+                Array(props.rating).fill().map(rating=><p style={{display:'inline'}}>⭐</p>)
+                
+                }
            </Rating>
-           <Image src='https://images-na.ssl-images-amazon.com/images/I/81SGb5l%2BlZL._AC_SX342_.jpg'/>
+           <Image src={props.image}/>
            <ActionSection>
                 <AddToCartButton>Add to Cart</AddToCartButton>
            </ActionSection>
